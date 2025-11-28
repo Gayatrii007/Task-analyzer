@@ -25,25 +25,22 @@
 
 5. Scoring Algorithm Explanation
     Each task is scored based on:
-    |----------------------------------------------------------------------------------------------|
+ 
     | Factor       | Description                                                     | Weight      |
     |--------------|-----------------------------------------------------------------|-------------|
     | Urgency      | Based on due date (overdue tasks receive a penalty boost)       | Medium–High |
     | Importance   | User rating from 1–10, multiplied ×2 to prioritize impact       | High        |
     | Effort       | Smaller tasks score higher using: `10 / (estimated_hours + 1)`  | Medium      |
     | Dependencies | Tasks that block multiple other tasks score above normal        | Medium      |
-    |----------------------------------------------------------------------------------------------|
 
 6. Formula (Simplified):
     total_score = urgency + (importance * 2) + (10 / (hours + 1)) + (dependencies * 3)
 
 7. Strategy Impact:
 
-    |-----------------------------------------------------------------------------------|
     | Strategy         | What Changes / Priority Logic Focus                            |
     |------------------|----------------------------------------------------------------|
     | Fastest Wins     | Effort is weighted more — quick tasks are prioritized          |
     | High Impact      | Importance dominates — high-value tasks come first             |
     | Deadline Driven  | Urgency dominates — tasks with closer deadlines rank higher    |
     | Smart Balance    | Uses default balanced weight across all factors (recommended)  |
-    |-----------------------------------------------------------------------------------|
