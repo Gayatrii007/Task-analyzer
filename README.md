@@ -7,10 +7,13 @@
 
 3. Tech Stack
     3.1 Area and Technology
-    -> Backend = Django, Django REST Framework
-    -> Frontend = HTML, CSS, JavaScript (Fetch API)
-    -> Algorithm = Custom scoring logic
-    -> Storage = In-memory (no DB persistence needed for assignment)
+    | Area        | Technology                                      |
+    |-------------|-------------------------------------------------|
+    | Backend     | Django, Django REST Framework                   |
+    | Frontend    | HTML, CSS, JavaScript (Fetch API)               |
+    | Algorithm   | Custom scoring and prioritization logic         |
+    | Storage     | In-memory (no database persistence required)    |
+
 
 4. Features
     4.1 Add tasks via form
