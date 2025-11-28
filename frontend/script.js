@@ -138,3 +138,13 @@ function displayResults(arr) {
 
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
+
+
+function updateStats(tasks) {
+    document.getElementById("totalTasks").innerText = tasks.length;
+
+    let high = tasks.filter(t => t.priority === "high").length;
+    document.getElementById("highPriority").innerText = high;
+
+    document.getElementById("suggested").innerText = Math.min(3, tasks.length);
+}

@@ -11,7 +11,6 @@ class AnalyzeTasksAPI(APIView):
     def post(self, request):
         data = request.data
 
-        # 🔥 FIX: Convert single object → list
         if isinstance(data, dict):
             data = [data]
 
@@ -40,7 +39,6 @@ class SuggestTasksAPI(APIView):
     def post(self, request):
         data = request.data
 
-        # 🔥 FIX: Convert single task → list
         if isinstance(data, dict):
             data = [data]
 
