@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Task Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <h1>🧠 Smart Task Analyzer</h1>
+
+    <!-- Input Section -->
+    <div class="container">
+
+        <h2>Add Task</h2>
+        <div class="form">
+            <input id="title" type="text" placeholder="Task Title" />
+            <input id="due_date" type="date" title="Due Date" />
+            <input id="estimated_hours" type="number" placeholder="Estimated Hours" />
+            <input id="importance" type="number" min="1" max="10" placeholder="Importance (1-10)" />
+            <input id="dependencies" type="text" placeholder="Dependencies (comma separated)" />
+
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <h3>OR Paste JSON</h3>
+        <textarea id="jsonInput" placeholder="Paste task JSON array..."></textarea>
+
+        <!-- Strategy Selector -->
+        <label for="strategy">Strategy:</label>
+        <select id="strategy">
+            <option value="smart_balance">Smart Balance</option>
+            <option value="fastest_wins">Fastest Wins</option>
+            <option value="high_impact">High Impact</option>
+            <option value="deadline_driven">Deadline Driven</option>
+        </select>
+
+        <br><br>
+
+        <!-- Buttons -->
+        <button onclick="analyzeTasks()">Analyze</button>
+        <button onclick="suggestTasks()">Suggest Top 3</button>
+
+    </div>
+
+    <hr>
+
+    <!-- Output Section -->
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
