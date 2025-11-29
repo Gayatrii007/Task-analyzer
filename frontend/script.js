@@ -34,8 +34,6 @@ function clearInputFields() {
     document.getElementById("importance").value = "";
     document.getElementById("dependencies").value = "";
 }
-
-
 function showTaskList() {
     const output = document.getElementById("output");
     
@@ -48,16 +46,25 @@ function showTaskList() {
 
     tasks.forEach((t, index) => {
         output.innerHTML += `
-            <div style="border:1px solid #ccc;padding:10px;margin:5px;border-radius:6px;">
-                <strong>${index + 1}. ${t.title}</strong><br>
-                ⏳ Due: ${t.due_date ?? "Not set"}<br>
-                ⏱ Hours: ${t.estimated_hours ?? "-"}<br>
-                ⭐ Importance: ${t.importance}<br>
-                🔗 Depends on: ${t.dependencies.length ? t.dependencies.join(", ") : "None"}
+            <div style="border:1px solid #ccc;padding:10px;margin:5px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                    <strong>${index + 1}. ${t.title}</strong><br>
+                    ⏳ Due: ${t.due_date ?? "Not set"}<br>
+                    ⏱ Hours: ${t.estimated_hours ?? "-"}<br>
+                    ⭐ Importance: ${t.importance}<br>
+                    🔗 Depends on: ${t.dependencies.length ? t.dependencies.join(", ") : "None"}
+                </div>
+
+                <button 
+                    onclick="deleteTask(${index})" 
+                    style="padding:6px 10px;background:red;color:white;border:none;border-radius:5px;cursor:pointer;">
+                    Delete
+                </button>
             </div>
         `;
     });
 }
+
 
 
 function getPayload() {
@@ -147,4 +154,9 @@ function updateStats(tasks) {
     document.getElementById("highPriority").innerText = high;
 
     document.getElementById("suggested").innerText = Math.min(3, tasks.length);
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    showTaskList();
 }
